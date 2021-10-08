@@ -11,6 +11,7 @@ from django.contrib.auth import(
 from .models import ReviewModel
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def signupview(request):
@@ -40,10 +41,12 @@ def loginview(request):
             return redirect('login')
     return render(request, 'login.html')
 
+@login_required
 def listview(request):
     object_list = ReviewModel.objects.all()
     return render(request, 'list.html', {'object_list':object_list})
 
+@login_required
 def detailview(request,pk):
     object = ReviewModel.objects.get(pk=pk)
     return render(request, 'detail.html', {'object':object})

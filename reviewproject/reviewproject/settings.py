@@ -128,3 +128,5 @@ MEDIA_URL = '/image/'
 
 STATIC_URL = '/staticfile/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+
+LOGIN_URL = '/login/'
