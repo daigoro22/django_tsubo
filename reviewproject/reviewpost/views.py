@@ -33,9 +33,9 @@ def loginview(request):
         user = authenticate(request,username=username_data, password=password_data)
         if user is not None:
             login(request,user)
-            redirect('list')
+            return redirect('list')
         else:
-            redirect('login')
+            return redirect('login')
     return render(request, 'login.html')
 
 def listview(request):
