@@ -13,7 +13,7 @@
         <div class="card-body">
             <h5 class="card-title">投稿者: {{item.author}}</h5>
             <h6 class="card-title">参考になった人: {{item.useful_review}}人</h6>
-            <a href= "{% url 'list' %}" class="btn btn-primary">詳細へ</a>
+            <a href= "{% url 'detail' item.pk %}" class="btn btn-primary">詳細へ</a>
         </div>
     </div>
     {% endfor %}
