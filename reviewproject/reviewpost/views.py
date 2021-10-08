@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import(
     authenticate,
-    login
+    login,
+    logout
 )
 from .models import ReviewModel
 from django.views.generic import CreateView
@@ -56,3 +57,7 @@ class CreateClass(CreateView):
     model = ReviewModel
     fields = ('title','content','author','images','evaluation')
     success_url = reverse_lazy('list')
+
+def logoutview(request):
+    logout(request)
+    return redirect('login')
