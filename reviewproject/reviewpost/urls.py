@@ -5,7 +5,8 @@ from .views import (
     listview,
     detailview,
     CreateClass,
-    logoutview
+    logoutview,
+    evaluationview,
 )
 
 urlpatterns = [
@@ -15,4 +16,5 @@ urlpatterns = [
     path('detail/<int:pk>',detailview,name='detail'),
     path('create/',CreateClass.as_view(),name='create'),
     path('logout/',logoutview,name='logout'),
+    path('evaluation/<int:pk>',evaluationview,name='evaluation'),
 ]

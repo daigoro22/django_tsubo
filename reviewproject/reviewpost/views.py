@@ -61,3 +61,14 @@ class CreateClass(CreateView):
 def logoutview(request):
     logout(request)
     return redirect('login')
+
+def evaluationview(request,pk):
+    post = ReviewModel.objects.get(pk=pk)
+    author_name = request.user.get_username() + str(request.user.id)
+    if author_name in post.useful_review_record:
+        return redirect('list')
+    else:
+        post.useful_review = post.useful_review + 1
+        post.useful_review_record = post.useful_review_record + author_name
+        post.save()
+        return redirect('list')
